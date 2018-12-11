@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RecyclerViewWithScroll</string>
+    <string name="action_settings">Settings</string>
+</resources>
