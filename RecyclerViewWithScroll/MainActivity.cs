@@ -6,7 +6,7 @@ using Android.Widget;
 using Android.Support.V7.Widget;
 using Android.Views;
 
-namespace NestedRecyclerView
+namespace RecyclerViewWithScroll
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity

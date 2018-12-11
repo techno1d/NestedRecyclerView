@@ -13,7 +13,7 @@ using Android.Util;
 using Android.Support.V7.Widget;
 using Android.Support.V4.View;
 
-namespace NestedRecyclerView
+namespace RecyclerViewWithScroll
 {
 	[Register("com.techno1d.NestedRecyclerView")]
 	public class NestedRecyclerView : RecyclerView, INestedScrollingParent
@@ -45,6 +45,7 @@ namespace NestedRecyclerView
 		public override bool DispatchTouchEvent(MotionEvent e)
 		{
 			bool temporarilySkipsInterception = _nestedScrollTarget != null;
+
 			if (temporarilySkipsInterception)
 			{
 				// If a descendent view is scrolling we set a flag to temporarily skip our onInterceptTouchEvent implementation

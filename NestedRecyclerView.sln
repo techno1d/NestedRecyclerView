@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecyclerViewWithScroll", "RecyclerViewWithScroll\RecyclerViewWithScroll.csproj", "{A45D62B7-CDCE-40C1-A845-17F489C818DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NestedRecyclerView", "RecyclerViewWithScroll\NestedRecyclerView.csproj", "{A45D62B7-CDCE-40C1-A845-17F489C818DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
