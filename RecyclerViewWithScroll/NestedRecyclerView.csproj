@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="NestedRecyclerView.cs" />
+    <Compile Include="NestedRecyclerView2.cs" />
+    <Compile Include="NestedTextView.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -110,6 +112,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\long_text_item.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\resizable_item.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

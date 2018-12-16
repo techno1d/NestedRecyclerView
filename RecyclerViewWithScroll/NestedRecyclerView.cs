@@ -18,6 +18,8 @@ namespace RecyclerViewWithScroll
 	[Register("com.techno1d.NestedRecyclerView")]
 	public class NestedRecyclerView : RecyclerView, INestedScrollingParent
 	{
+		string TAG = "NestedRecyclerView";
+
 		protected Context _context;
 
 		private View _nestedScrollTarget = null;
@@ -41,24 +43,30 @@ namespace RecyclerViewWithScroll
 		protected NestedRecyclerView(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer) { }
 		#endregion
 
-
 		public override bool DispatchTouchEvent(MotionEvent e)
 		{
+			//Log.Debug(TAG, "Dispatch Touch Event");
+
 			bool temporarilySkipsInterception = _nestedScrollTarget != null;
 
 			if (temporarilySkipsInterception)
 			{
+				//Log.Debug(TAG, "temporarilySkipsInterception is TRUE");
 				// If a descendent view is scrolling we set a flag to temporarily skip our onInterceptTouchEvent implementation
 				_skipsTouchInterception = true;
+				//Log.Debug(TAG, "_skipsTouchInterseption is TRUE");
 			}
-
+			
 			// First dispatch, potentially skipping our onInterceptTouchEvent
 			bool handled = base.DispatchTouchEvent(e);
 
 			if (temporarilySkipsInterception)
 			{
+				//Log.Debug(TAG, "temporarilySkipsInterception is TRUE");
+
 				_skipsTouchInterception = false;
 
+				//Log.Debug(TAG, "_skipsTouchInterseption is FALSE");
 				// If the first dispatch yielded no result or we noticed that the descendent view is unable to scroll in the
 				// direction the user is scrolling, we dispatch once more but without skipping our onInterceptTouchEvent.
 				// Note that RecyclerView automatically cancels active touches of all its descendents once it starts scrolling
@@ -76,11 +84,13 @@ namespace RecyclerViewWithScroll
 		
 		public override bool OnInterceptTouchEvent(MotionEvent e)
 		{
+			Log.Debug(TAG, "OnInterceptTouchEvent");
 			return base.OnInterceptTouchEvent(e) && !_skipsTouchInterception;
 		}
 
 		public override void OnNestedScroll(View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed)
 		{
+			Log.Debug(TAG, "OnNestedScroll");
 			base.OnNestedScroll(target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed);
 
 			if (target == _nestedScrollTarget && !_nestedScrollTargetIsBeingDragged)
@@ -106,6 +116,7 @@ namespace RecyclerViewWithScroll
 
 		public override void OnNestedScrollAccepted(View child, View target, [GeneratedEnum] ScrollAxis axes)
 		{
+			Log.Debug(TAG, "OnNestedScrollAccepted");
 			if (axes != 0 && Android.Views.ScrollAxis.Vertical != 0)
 			{
 				// A descendent started scrolling, so we'll observe it.
@@ -119,6 +130,7 @@ namespace RecyclerViewWithScroll
 
 		public override bool OnStartNestedScroll(View child, View target, [GeneratedEnum] ScrollAxis nestedScrollAxes)
 		{
+			Log.Debug(TAG, "OnStartNestedScroll");
 			bool secondPart = (int)Build.VERSION.SdkInt < 21 || ScrollAxis.Vertical != 0;
 
 			return (nestedScrollAxes != 0 && secondPart);
@@ -126,6 +138,7 @@ namespace RecyclerViewWithScroll
 
 		public override void OnStopNestedScroll(View child)
 		{
+			Log.Debug(TAG, "OnStopNestedScroll");
 			_nestedScrollTarget = null;
 			_nestedScrollTargetIsBeingDragged = false;
 			_nestedScrollTargetWasUnableToScroll = false;

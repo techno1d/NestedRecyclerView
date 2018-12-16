@@ -1,50 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:focusableInTouchMode="true"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:orientation="vertical">
-
-	<Button
-		android:id="@+id/button"
-		android:gravity="center"
-		android:layout_gravity="center"
-		android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-		android:text="Bzzz"
-	/>
-
-	<ScrollView
-		android:id="@+id/text_resize"		
-		android:layout_height="50dp"
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/resizable"
+	android:layout_width="match_parent"
+	android:layout_height="100dp" 
+	 >
+	
+	<android.support.v4.widget.NestedScrollView
+		android:background="@android:color/black"
 		android:layout_width="match_parent"
-		android:text="Text"
-	>
+		android:layout_height="match_parent">
+		
 		<TextView
-			android:background="@android:color/black"
+			android:background="@null"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:textColor="@android:color/white"
 			android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed diam eget enim bibendum luctus. Nulla gravida ipsum vel turpis tristique congue. Nullam at dolor congue tellus maximus aliquet faucibus posuere erat. Suspendisse pharetra aliquam semper. Aliquam mattis arcu nec nisl pulvinar, vel varius lorem rhoncus. Aliquam mollis magna posuere pharetra fringilla. Nam fermentum eu enim nec semper. Nunc interdum tortor nec consequat accumsan. Nulla velit neque, sollicitudin et ex sit amet, cursus facilisis nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed diam eget enim bibendum luctus. Nulla gravida ipsum vel turpis tristique congue. Nullam at dolor congue tellus maximus aliquet faucibus posuere erat. Suspendisse pharetra aliquam semper. Aliquam mattis arcu nec nisl pulvinar, vel varius lorem rhoncus. Aliquam mollis magna posuere pharetra fringilla. Nam fermentum eu enim nec semper. Nunc interdum tortor nec consequat accumsan. Nulla velit neque, sollicitudin et ex sit amet, cursus facilisis nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed diam eget enim bibendum luctus. Nulla gravida ipsum vel turpis tristique congue. Nullam at dolor congue tellus maximus aliquet faucibus posuere erat. Suspendisse pharetra aliquam semper. Aliquam mattis arcu nec nisl pulvinar, vel varius lorem rhoncus. Aliquam mollis magna posuere pharetra fringilla. Nam fermentum eu enim nec semper. Nunc interdum tortor nec consequat accumsan. Nulla velit neque, sollicitudin et ex sit amet, cursus facilisis nulla." 
 		/>
 
-	</ScrollView>
+	</android.support.v4.widget.NestedScrollView>
+
 	
-    <com.techno1d.NewNestedRecyclerView 
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		xmlns:tools="http://schemas.android.com/tools"
-		android:id="@+id/list"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		tools:context="RecyclerViewWithScroll.MainActivity"
-	/>
-	
-	<!--
-	<android.support.v7.widget.RecyclerView
-		android:id="@+id/list"
-		android:scrollbars="vertical"
-        android:layout_width="match_parent"
-		android:layout_height="match_parent"
-	/>
-	-->
-</LinearLayout>
+
+
+</FrameLayout>
